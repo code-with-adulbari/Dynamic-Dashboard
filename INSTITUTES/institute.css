@@ -1,0 +1,20 @@
+  /* Center content horizontally and vertically on the page */
+        body {
+            background-color: #f8f9fa;
+            /* Added padding-bottom to ensure content is visible above the fixed footer */
+            padding-bottom: 60px; 
+        }
+        .container {
+            padding-top: 20px;
+        }
+        .card-header, .text-center {
+            text-align: center;
+        }
+        /* Style for the fixed footer */
+        .footer-fixed {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            /* Ensure it sits above other elements */
+            z-index: 1030; 
+        }
