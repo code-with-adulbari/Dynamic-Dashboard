@@ -203,13 +203,13 @@ function generateMarksheetFromPrompt() {
         '<div class="row mt-5">' +
             // Registrar/Controller
             '<div class="col-6 text-start">' +
-             '<img src="sig.png" alt="Controller Signature" style="width: 150px; height: 50px; display: block; margin-left: 0px; margin-bottom: -15px;">' +
+             '<img src="../assets/images/sig.png" alt="Controller Signature" style="width: 150px; height: 50px; display: block; margin-left: 0px; margin-bottom: -15px;">' +
                  '<p class="mb-0 pt-2">Registrar/Controller of Examinations</p>' +
             '</div>' +
             // Principal Signature (with Image)
             '<div class="col-6 text-end">' +
                 // Signature image added above the line
-                '<img src="sign.jpg" alt="Principal Signature" style="width: 150px; height: 50px; display: block; margin-left: auto; margin-bottom: -15px;">' +
+                '<img src="../assets/images/sign.jpg" alt="Principal Signature" style="width: 150px; height: 50px; display: block; margin-left: auto; margin-bottom: -15px;">' +
                 '<p class="mb-0 pt-2">Principal Signature</p>' +
             '</div>' +
         '</div>' +
@@ -217,7 +217,7 @@ function generateMarksheetFromPrompt() {
         '<div class="row mt-4">' +
             '<div class="col-12 text-center">' +
                 // Barcode Image
-                '<img src="qr code.png" alt="Generated Qr code" style="width: 180px; height: 100px; margin-bottom: 5px;">' +
+                '<img src="../assets/images/qr code.png" alt="Generated Qr code" style="width: 180px; height: 100px; margin-bottom: 5px;">' +
                 '<p class="mb-0 border-top pt-2">Qr code Generatder</p>'
             '</div>' +
         '</div>'
