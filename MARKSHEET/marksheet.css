@@ -1,26 +1,30 @@
- body {
-            padding-top: 20px;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 800px;
-        }
-        .marksheet-output {
-            padding: 30px;
-            border: 2px solid #007bff; /* Primary color border for emphasis */
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .marksheet-output th {
-            width: 35%;
-            background-color: #e9ecef;
-        }
+
+         body {
+             padding-top: 20px;
+             background-color: #f8f9fa;
+         }
+         .container {
+             /* Keeps content centered and readable on large screens */
+             max-width: 800px;
+         }
+         .marksheet-output {
+             padding: 30px;
+             border: 2px solid #007bff; /* Primary color border for emphasis */
+             border-radius: 8px;
+             background-color: #fff;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+         }
+         .marksheet-output th {
+             /* Keep TH width consistent for better alignment */
+             width: 30%;
+             background-color: #e9ecef;
+         }
           /* Style for the fixed footer */
-        .footer-fixed {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            /* Ensure it sits above other elements */
-            z-index: 1030; 
-        }
+         .footer-fixed {
+             position: fixed;
+             bottom: 0;
+             width: 100%;
+             /* Ensure it sits above other elements */
+             z-index: 1030;
+             padding-top: 10px; /* Added for spacing */
+         }

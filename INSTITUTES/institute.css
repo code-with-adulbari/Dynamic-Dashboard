@@ -1,8 +1,8 @@
-  /* Center content horizontally and vertically on the page */
+      /* Center content horizontally and vertically on the page */
         body {
             background-color: #f8f9fa;
             /* Added padding-bottom to ensure content is visible above the fixed footer */
-            padding-bottom: 60px; 
+            padding-bottom: 60px;
         }
         .container {
             padding-top: 20px;
@@ -16,5 +16,5 @@
             bottom: 0;
             width: 100%;
             /* Ensure it sits above other elements */
-            z-index: 1030; 
+            z-index: 1030;
         }

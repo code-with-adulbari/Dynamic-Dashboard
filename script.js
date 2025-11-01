@@ -1,47 +1,33 @@
-// Filename: contactAlert.js
+        // JAVASCRIPT LOGIC (Alert before navigation FIX)
 
-// Define the contact information
-const github = "https://github.com/code-with-adulbari";
-const email = "sunnykhank245@gmail.com";
-const linkedIn = "https://www.linkedin.com/in/abdul-bari-261a1737a/";
-const contactNumber = "03282813105";
-
-// Construct the message for the alert box
-const alertMessage = `
-My Contact Information:
-
-GitHub: ${github}
-Email: ${email}
-Linkedin: ${linkedIn}
-Contact: ${contactNumber}
-
-To open the links, please copy and paste the full URL or email address into your browser/email program.
-`;
-
-// Display the alert box
-alert(alertMessage);
-      // JAVASCRIPT LOGIC (Unchanged)
         document.addEventListener('DOMContentLoaded', () => {
+            const contactModalElement = document.getElementById('contactModal');
+            if (contactModalElement) {
+                const contactModal = new bootstrap.Modal(contactModalElement);
+                contactModal.show();
+            }
+
             const marksheetBtn = document.getElementById('marksheet-btn');
             const cricketBtn = document.getElementById('cricket-btn');
             const instituteBtn = document.getElementById('institute-btn');
 
-            const handleClick = (buttonName) => {
-                // In a real application, you would use window.location.href = 'new_page.html'
+            const handleClick = (buttonName, targetUrl) => {
+                // Alert fires first, then navigation
                 alert(`Navigating to: ${buttonName} Portal!`);
                 console.log(`Button clicked: ${buttonName}`);
+                document.location = targetUrl; 
             };
 
             marksheetBtn.addEventListener('click', () => {
-                handleClick('Marksheet Generator');
+                handleClick('Marksheet Generator', 'MARKSHEET/marksheet.html');
             });
 
             cricketBtn.addEventListener('click', () => {
-                handleClick('Cricket Leagues');
+                handleClick('Cricket Leagues', 'CIRCKET LEAGUES/leagues.html');
             });
 
             instituteBtn.addEventListener('click', () => {
-                handleClick('Institute');
+                handleClick('Institute', 'INSTITUTES/insttitue.html');
             });
         });
-  
+    

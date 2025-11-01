@@ -1,185 +1,234 @@
-        /* CSS STYLES: Responsive Design, Fixed Footer, and Shimmer Buttons */
+    /* CSS STYLES: Responsive Design, Fixed Footer, and Shimmer Buttons */
 
-        :root {
-            /* Color Palette */
-            --bg-deep: #0e332a; 
-            --bg-mid: #154538;
-            --text-light: #f0e6d2;
-            --glass-border: rgba(255, 255, 255, 0.3);
-            
-            /* Shimmer Colors */
-            --marksheet-color: #00b0ff; /* Bright Blue */
-            --cricket-color: #ffd700;  /* Pure Gold */
-            --institute-color: #38b488; /* Vibrant Emerald Green */
-            --footer-bg: rgba(0, 0, 0, 0.3);
-        }
-
-        /* --- Global Reset and Layout --- */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-light);
-            display: flex;
-            flex-direction: column; /* Allows footer to be pushed to the bottom */
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f4c75, #364f6b, #43aa8b, #208b5e, #0e332a);
-            background-size: 400% 400%;
-            animation: gradient-flow 30s ease infinite;
-            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
-            padding-bottom: 60px; /* Space for the fixed footer */
-        }
-
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- Content Container (Glassmorphism Style) --- */
-        .content-container {
-            padding: 50px 30px; /* Adjusted padding for better mobile view */
-            border-radius: 20px;
-            background: rgba(0, 0, 0, 0.2); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-            text-align: center;
-            width: 90%; /* Responsive width */
-            max-width: 900px;
-            margin-top: auto; /* Push content away from top edge */
-            margin-bottom: auto;
-            z-index: 10;
-        }
-
-        h1 {
-            font-size: 2.5em; /* Slightly smaller for mobile */
-            margin-bottom: 40px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* --- Responsive Button Grid (Flexbox/Grid) --- */
-        .button-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Default: Single column for mobile */
-            gap: 25px; /* Smaller gap on mobile */
-        }
-
-        /* --- DESKTOP VIEW (Media Query) --- */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 3em; /* Restore large size */
-            }
-            .button-grid {
-                grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
-                gap: 40px; /* Larger gap on desktop */
-            }
-        }
+    :root {
+        /* Color Palette (ORIGINAL GREEN HUES FOR BUTTONS) */
+        --bg-deep: #0e332a;
+        --bg-mid: #154538;
+        --text-light: #f0e6d2;
+        --glass-border: rgba(255, 255, 255, 0.3);
         
-        /* --- Shimmering Button Styles (Combined) --- */
-        .shimmer-btn {
-            background: var(--bg-mid); 
-            color: var(--text-light);
-            padding: 0;
-            border: none;
-            cursor: pointer;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .shimmer-btn span {
-            display: block;
-            padding: 25px 20px; /* Slightly adjusted padding */
-            font-size: 1.1em;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            position: relative;
-            z-index: 3;
-        }
-
-        /* Shimmer Effect Setup (::before) */
-        .shimmer-btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(transparent 0%, transparent 40%, var(--marksheet-color) 50%, var(--marksheet-color) 60%, transparent 70%, transparent 100%);
-            z-index: 1;
-             animation: rotate-border 4s linear infinite;
-            opacity: 1;
-        }
-
-        #cricket-btn::before { background: conic-gradient(transparent 0%, transparent 40%, var(--cricket-color) 50%, var(--cricket-color) 60%, transparent 70%, transparent 100%); }
-        #institute-btn::before { background: conic-gradient(transparent 0%, transparent 40%, var(--institute-color) 50%, var(--institute-color) 60%, transparent 70%, transparent 100%); }
-
-        /* Inner Mask (::after) */
-        .shimmer-btn::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: var(--bg-mid);
-            border-radius: 10px;
-            z-index: 2; 
-            transition: background 0.3s ease;
-        }
-
-        /* Hover and Animation Logic */
-        .shimmer-btn:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
+        /* Shimmer Colors */
+        --marksheet-color: #00b0ff;
+        --cricket-color: #ffd700;
+        --institute-color: #38b488;
+        --footer-bg: rgba(0, 0, 0, 0.3);
         
-        .shimmer-btn:hover::before {
-            animation: rotate-border 4s linear infinite;
-            opacity: 1;
-        }
+        /* New Modal Colors (Sky Blue for Header/Hover) */
+        --modal-header-color: #00b0ff;
+    }
 
-        @keyframes rotate-border {
-            100% { transform: rotate(360deg) scale(1.05); }
-        }
+    /* --- Global Reset and Layout --- */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text-light);
         
-        .shimmer-btn:hover::after {
-            background: #205548;
-        }
+        /* Flexbox setup for full centering */
+        display: flex;
+        flex-direction: column; 
+        min-height: 100vh;
+        
+        /* Animated Background */
+        background: linear-gradient(135deg, #0f4c75, #364f6b, #43aa8b, #208b5e, var(--bg-deep));
+        background-size: 400% 400%;
+        animation: gradient-flow 30s ease infinite;
+        overflow-x: hidden;
+        
+        /* Adjusted padding to visually push content up from the fixed footer */
+        padding-top: 60px; 
+        padding-bottom: 60px; 
+        
+        /* Center content block on the screen */
+        align-items: center; 
+        justify-content: center;
+    }
 
-        .shimmer-btn:active {
-            transform: translateY(-4px); 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* --- Fixed Footer --- */
-        .fixed-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--footer-bg);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-            text-align: center;
-            padding: 15px 0;
-            font-size: 0.9em;
-            z-index: 100; /* Ensure it's above everything */
-            backdrop-filter: blur(5px); /* Optional: Glass effect for footer */
-        }
-        .fixed-footer a {
-            color: var(--cricket-color); /* Gold color for links */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .fixed-footer a:hover {
-            color: var(--marksheet-color);
-        }
+    @keyframes gradient-flow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
     
+    /* *** CRITICAL FIX FOR CENTERING *** */
+    .container {
+        /* This ensures the Bootstrap container takes up all available vertical space */
+        height: 100%;
+        /* Makes the container a flex item and allows it to shrink to fit the content-container */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* --- Content Container (Glassmorphism Style) --- */
+    .content-container {
+        padding: 50px 30px; 
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.2); 
+        backdrop-filter: blur(15px); 
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+        text-align: center;
+        max-width: 900px;
+        
+        /* Overriding Bootstrap's default my-5 for perfect centering */
+        margin-top: 0 !important; 
+        margin-bottom: 0 !important;
+        
+        z-index: 10;
+        width: 100%; 
+    }
+
+    h1 {
+        font-size: 2.5em; 
+        margin-bottom: 40px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* --- Shimmering Button Styles (Green) --- */
+    .shimmer-btn {
+        background: var(--bg-mid); 
+        color: var(--text-light);
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%; 
+    }
+
+    .shimmer-btn span {
+        display: block;
+        padding: 25px 20px;
+        font-size: 1.1em;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        position: relative;
+        z-index: 3;
+    }
+
+    /* Shimmer Effect Setup (::before) */
+    .shimmer-btn::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent 0%, transparent 40%, var(--marksheet-color) 50%, var(--marksheet-color) 60%, transparent 70%, transparent 100%);
+        z-index: 1;
+        animation: rotate-border 4s linear infinite;
+        opacity: 1;
+    }
+
+    #cricket-btn::before { background: conic-gradient(transparent 0%, transparent 40%, var(--cricket-color) 50%, var(--cricket-color) 60%, transparent 70%, transparent 100%); }
+    #institute-btn::before { background: conic-gradient(transparent 0%, transparent 40%, var(--institute-color) 50%, var(--institute-color) 60%, transparent 70%, transparent 100%); }
+
+    /* Inner Mask (::after) */
+    .shimmer-btn::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background: var(--bg-mid); 
+        border-radius: 10px;
+        z-index: 2; 
+        transition: background 0.3s ease;
+    }
+
+    /* Hover and Animation Logic */
+    .shimmer-btn:hover {
+        transform: translateY(-8px); 
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+    
+    .shimmer-btn:hover::before {
+        animation: rotate-border 4s linear infinite;
+        opacity: 1;
+    }
+
+    @keyframes rotate-border {
+        100% { transform: rotate(360deg) scale(1.05); }
+    }
+    
+    .shimmer-btn:hover::after {
+        background: #205548; 
+    }
+
+    .shimmer-btn:active {
+        transform: translateY(-4px); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* --- Fixed Footer --- */
+    .fixed-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--footer-bg); 
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        text-align: center;
+        padding: 15px 0;
+        font-size: 0.9em;
+        z-index: 100;
+        backdrop-filter: blur(5px);
+    }
+    .fixed-footer a {
+        color: var(--cricket-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        cursor: pointer; 
+    }
+    .fixed-footer a:hover {
+        color: var(--marksheet-color);
+    }
+
+    /* Custom Modal Styling (GLASSMORPHISM MATCH) */
+    .modal-content {
+        /* Matching the glassmorphism effect of the main container */
+        background: rgba(0, 0, 0, 0.2); 
+        backdrop-filter: blur(10px); 
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+
+        /* General styles */
+        color: var(--text-light);
+    }
+    .modal-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .modal-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .modal-title {
+        color: var(--modal-header-color); 
+        font-weight: 700;
+    }
+    .btn-close { 
+        filter: invert(1) brightness(2);
+    }
+    
+    /* --- ENHANCED LINK STYLES (Sky Blue) --- */
+    .list-unstyled a {
+        font-weight: 600;
+        text-decoration: none; 
+        transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; 
+        display: inline-block;
+        padding-left: 5px;
+    }
+    .list-unstyled a:hover {
+        color: var(--modal-header-color) !important; 
+        text-shadow: 0 0 8px rgba(0, 176, 255, 0.7); 
+        text-decoration: underline; 
+        transform: translateX(3px); 
+    }
+    /* ----------------------------- */

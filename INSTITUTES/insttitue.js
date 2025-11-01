@@ -80,7 +80,7 @@ function addStudent() {
         alert("❌ Present and Absent counts must be **NUMBERS**. Please do not enter a name or text.");
         return;
     }
-    
+
     // 3. General Validation (Name entered and counts are non-negative)
     if (!name || present < 0 || absent < 0) {
         alert("Please enter a valid Student Name and non-negative counts.");
