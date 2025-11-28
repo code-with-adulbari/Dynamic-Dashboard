@@ -1,33 +1,43 @@
-        // JAVASCRIPT LOGIC (Alert before navigation FIX)
+    document.addEventListener('DOMContentLoaded', () => {
+      const marksheetBtn = document.getElementById('marksheet-btn');
+      const cricketBtn = document.getElementById('cricket-btn');
+      const instituteBtn = document.getElementById('institute-btn');
+      const contactGenBtn = document.getElementById('contactgen-btn');
+      const simpleQuizBtn = document.getElementById('simplequiz-btn');
+     const cnicBtn = document.getElementById('cnic-btn');
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactModalElement = document.getElementById('contactModal');
-            if (contactModalElement) {
-                const contactModal = new bootstrap.Modal(contactModalElement);
-                contactModal.show();
-            }
+      const handleClick = (buttonName, targetUrl) => {
+        alert(`Navigating to: ${buttonName} Portal!`);
+        console.log(`Button clicked: ${buttonName}`);
+        document.location = targetUrl;
+      };
 
-            const marksheetBtn = document.getElementById('marksheet-btn');
-            const cricketBtn = document.getElementById('cricket-btn');
-            const instituteBtn = document.getElementById('institute-btn');
+      marksheetBtn.addEventListener('click', () => {
+        handleClick('Marksheet Generator', 'MARKSHEET/marksheet.html');
+      });
 
-            const handleClick = (buttonName, targetUrl) => {
-                // Alert fires first, then navigation
-                alert(`Navigating to: ${buttonName} Portal!`);
-                console.log(`Button clicked: ${buttonName}`);
-                document.location = targetUrl; 
-            };
+      cricketBtn.addEventListener('click', () => {
+        handleClick('Cricket Leagues', 'CIRCKET LEAGUES/leagues.html');
+      });
 
-            marksheetBtn.addEventListener('click', () => {
-                handleClick('Marksheet Generator', 'MARKSHEET/marksheet.html');
-            });
+      instituteBtn.addEventListener('click', () => {
+        handleClick('Institute', 'INSTITUTES/insttitue.html');
+      });
 
-            cricketBtn.addEventListener('click', () => {
-                handleClick('Cricket Leagues', 'CIRCKET LEAGUES/leagues.html');
-            });
+      contactGenBtn.addEventListener('click', () => {
+        handleClick('Contact Generator', 'CONTACT ASSIGNEMENT/contactassig.html');
+      });
+simpleQuizBtn.addEventListener('click', () => {
+        handleClick('Simple Quiz', 'SIMPLE QUIZ OF HTML,CSS,JS/simple(mcqs).html');
+      });
+cnicBtn.addEventListener('click', () => {
+        handleClick('Cnic Generater', 'CNIC GENERATER/cnic.html');
+      });
 
-            instituteBtn.addEventListener('click', () => {
-                handleClick('Institute', 'INSTITUTES/insttitue.html');
-            });
-        });
-    
+      // NEW: Auto-open the contact modal on page load
+      const contactModalElement = document.getElementById('contactModal');
+      if (contactModalElement) {
+        const contactModal = new bootstrap.Modal(contactModalElement);
+        contactModal.show();
+      }
+    });

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Contact Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="contactassig.css">
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="container text-center">
+            <h1 class="my-5">💾 Contact Management </h1>
+            <p class="lead">Unique names and numbers are required, and numbers must be at least 10 digits.</p>
+            <button class="btn btn-success btn-start" onclick="getContactDetails()">
+                ➕ Create New Contact
+            </button>
+
+            <hr class="mt-4">
+
+            <div id="contact-list" class="mt-5">
+                <h4 class="text-start mb-3">Saved Contacts (<span id="contact-count">0</span>)</h4>
+                
+                <div class="list-header d-none d-md-flex align-items-center">
+                    <div class="col-name text-start">NAME</div>
+                    <div class="col-relation text-start">RELATION</div>
+                    <div class="col-number text-start">NUMBER</div>
+                    <div class="col-actions">ACTIONS</div>
+                </div>
+
+                <ul id="contact-ul" class="list-group list-group-flush">
+                    <li id="empty-message" class="list-group-item text-muted text-center">No contacts added yet. Click 'Create New Contact' to begin.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 fixed-footer">
+        <div class="container">
+            <p class="mb-0">
+                &copy; 2025 Contact Manager. All rights reserved. | 
+                <span class="d-block d-sm-inline">Developed & Designed by Abdul Bari Khan</span>
+            </p>
+        </div>
+    </footer>
+    
+    <script src="./contactassig.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

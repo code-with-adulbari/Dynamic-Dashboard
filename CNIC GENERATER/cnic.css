@@ -1,0 +1,34 @@
+   /* Custom styles for the body and form container */
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-color: #f8f9fa; /* bg-light equivalent */
+        }
+        /* Custom styles to replicate the rounded/shaded card look */
+        .form-card {
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border: 1px solid #dee2e6;
+        }
+        /* Style for required indicator */
+        .required::after {
+            content: ' *';
+            color: #dc3545; /* red */
+        }
+        /* Custom focus state */
+        .form-control:focus {
+            border-color: #0d6efd; /* blue */
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        /* Ensure the body has padding at the bottom for the fixed footer */
+        .page-content {
+            padding-bottom: 50px; /* Space equal to footer height */
+        }
+        /* Hide the container element by default */
+        .hidden {
+            display: none;
+        }

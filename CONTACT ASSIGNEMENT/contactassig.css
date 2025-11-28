@@ -1,0 +1,82 @@
+
+        /* General body styling for full height content and sticky footer */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* ADDED: Padding to account for the fixed footer height (approx 60px) */
+            padding-bottom: 60px; 
+        }
+        .main-content {
+            flex: 1; /* Allows content area to grow and push footer down */
+        }
+        .btn-start {
+            margin-top: 30px;
+            font-size: 1.25rem;
+            padding: 10px 30px;
+        }
+        #contact-list {
+            max-width: 900px; 
+            margin: 20px auto;
+        }
+
+        /* --- Custom Responsive Styling for List and Actions --- */
+
+        .list-header {
+            font-weight: bold;
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        /* The row structure for each contact item */
+        .contact-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Responsive Column Widths: Full width on small, grid on medium/large */
+        @media (min-width: 768px) { /* md and up */
+            .contact-row > div:nth-child(1) { width: 30%; } /* NAME */
+            .contact-row > div:nth-child(2) { width: 20%; } /* RELATION */
+            .contact-row > div:nth-child(3) { width: 25%; } /* NUMBER */
+            .contact-row > div:nth-child(4) { 
+                width: 25%; 
+                text-align: right; 
+                display: block !important; /* Ensure actions are side-by-side on larger screens */
+            }
+            .list-header .col-name { width: 30%; }
+            .list-header .col-relation { width: 20%; }
+            .list-header .col-number { width: 25%; }
+            .list-header .col-actions { width: 25%; text-align: right; }
+        }
+
+        @media (max-width: 767.98px) { /* sm and down */
+            /* Hide the header on very small screens for better space management */
+            .list-header { display: none; } 
+            
+            /* Stack contact info vertically */
+            .contact-row { flex-direction: column; align-items: flex-start; padding: 10px 0; }
+            .contact-row > div { width: 100%; margin-bottom: 5px; }
+
+            /* Move action buttons below content and center them */
+            .contact-row > div:nth-child(4) { 
+                text-align: center;
+                margin-top: 10px;
+            }
+            .contact-row > div:nth-child(4) button {
+                width: 45%; 
+                margin: 5px 0;
+            }
+        }
+        
+        /* === FIXED FOOTER STYLES === */
+        .fixed-footer {
+            position: fixed; /* CRITICAL: Fixed position relative to viewport */
+            bottom: 0;      /* Stick to the bottom */
+            width: 100%;    /* Span the full width */
+            z-index: 1030;  /* Ensure it is above other elements */
+        }
+        /* Removed mt-5 from HTML footer tag since it's fixed */
+    
